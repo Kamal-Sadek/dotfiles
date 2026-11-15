@@ -2,14 +2,19 @@ set editing-mode vi
 set keymap vi
 set show-mode-in-prompt on
 
+set vi-ins-mode-string "+"
+set vi-cmd-mode-string ":"
+
 # Enable ctrl-l when in vi editing mode
 $if mode=vi
 set keymap vi-command
-set vi-ins-mode-string "+"
-set vi-cmd-mode-string ":"
 # these are for vi-command mode
 Control-l: clear-screen
 set keymap vi-insert
 # these are for vi-insert mode
 Control-l: clear-screen
+$endif
+
+$if Python
+    TAB: complete
 $endif
